@@ -1,0 +1,28 @@
+{
+  "name": "translink-sst",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "sst start",
+    "build": "sst build",
+    "deploy": "sst deploy",
+    "remove": "sst remove",
+    "console": "sst console",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@serverless-stack/cli": "^1.0.4",
+    "@serverless-stack/resources": "^1.0.4",
+    "@tsconfig/node14": "^1.0.1",
+    "typescript": "^4.6.4",
+    "vitest": "^0.12.2"
+  },
+  "workspaces": [
+    "backend"
+  ],
+  "dependencies": {
+    "node-fetch": "^3.2.4",
+    "xml-js": "^1.6.11"
+  }
+}

@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: Transport;
+  src: url("/Transport_Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Transport;
+  src: url("/Transport_Heavy.ttf") format("truetype");
+  font-weight: bold;
+  font-display: swap;
+}

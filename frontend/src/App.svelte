@@ -49,14 +49,15 @@
   >
     Load
   </button>
+  <div class="flex flex-col space-y-2">
   {#if stationTimetable && !loadingTimetable}
     {#if stationTimetable.StationBoard.Service}
       {#if Array.isArray(stationTimetable.StationBoard.Service)}
         {#each stationTimetable.StationBoard.Service as service}
-          <p>{service.Destination1.$.name}</p>
+            <Service service={service} />
         {/each}
       {:else}
-        <p>{stationTimetable.StationBoard.Service.Destination1.$.name}</p>
+          <Service service={stationTimetable.StationBoard.Service} />
       {/if}
     {:else}
       <p>No trains</p>
@@ -65,4 +66,5 @@
   {#if loadingTimetable}
     <p>Loading timetable...</p>
   {/if}
+  </div>
 </main>

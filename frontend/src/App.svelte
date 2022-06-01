@@ -30,25 +30,27 @@
 </div>
 <main class="max-w-screen-xl mx-auto px-3 min-h-screen">
   <p>Give the upcoming departures for...</p>
-  <select bind:value={selectedStationCode} id="station">
-    {#await stationsPromise}
-      <option>Loading stations...</option>
-    {:then stations}
-      <option value="" default disabled selected>Choose</option>
-      {#each stations.stations as station}
-        <option value={station.code}>{station.name}</option>
-      {/each}
-    {:catch error}
-      <option>{error.message}</option>
-    {/await}
-  </select>
-  <button
-    on:click={handleSubmit}
-    type="button"
-    class="bg-yellow-400 px-3 py-1 font-bold rounded-md border-2 border-black mb-4"
-  >
-    Load
-  </button>
+  <div class="flex items-center mb-4 space-x-2">
+    <select bind:value={selectedStationCode} id="station" class="px-3 py-2 rounded-md">
+      {#await stationsPromise}
+        <option>Loading stations...</option>
+      {:then stations}
+        <option value="" default disabled selected>Choose</option>
+        {#each stations.stations as station}
+          <option value={station.code}>{station.name}</option>
+        {/each}
+      {:catch error}
+        <option>{error.message}</option>
+      {/await}
+    </select>
+    <button
+      on:click={handleSubmit}
+      type="button"
+      class="bg-yellow-400 px-3 py-1 font-bold rounded-md border-2 border-black hover:opacity-75"
+    >
+      Load
+    </button>
+  </div>
   <div class="flex flex-col space-y-2">
     {#if stationTimetable && !loadingTimetable}
       {#if stationTimetable.StationBoard.Service}
